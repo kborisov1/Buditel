@@ -1,2 +1,3 @@
 // DOM step renderers (dnd-kit).
-export {};
+export { LessonPlayer, type LessonPlayerProps } from './LessonPlayer';
+export type { PlayerLabels } from './labels';
