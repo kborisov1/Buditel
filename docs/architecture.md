@@ -107,3 +107,16 @@ No mobile work is planned. These rules keep the option open at near-zero cost.
 5. **Cheaper interim option.** The web app is responsive and lessons are short, so an installable PWA can cover mobile for a long time before native is justified.
 
 If a native app is ever started, it becomes `apps/mobile` (Expo) in the same monorepo and consumes `schema`, `player/logic` and the typed API client as they are.
+
+## 10. Tooling and Makefile targets
+
+npm workspaces (`apps/*`, `packages/*`); no extra monorepo tool yet. Packages are consumed as TypeScript source and transpiled by Next. Run everything through `make`:
+
+| Target                      | Does                                              |
+| --------------------------- | ------------------------------------------------- |
+| `install`                   | `npm install`                                     |
+| `dev` / `build`             | Next.js dev server / production build             |
+| `test`                      | Vitest                                            |
+| `lint`                      | `tsc` typecheck, ESLint, Prettier check           |
+| `format`                    | Prettier write                                    |
+| `db-up` / `db-down`         | Local Postgres via Docker Compose                 |
