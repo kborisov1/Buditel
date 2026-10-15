@@ -1,0 +1,4 @@
+@import 'tailwindcss';
+
+/* Shared UI packages live outside this app. */
+@source '../../../packages';

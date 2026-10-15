@@ -1,11 +1,19 @@
 import type { ReactNode } from 'react';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
+import './globals.css';
 
-export const metadata = { title: 'Будител' };
+export async function generateMetadata() {
+  const t = await getTranslations('App');
+  return { title: t('name'), description: t('tagline') };
+}
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="bg">
-      <body>{children}</body>
+    <html lang={await getLocale()}>
+      <body className="min-h-dvh bg-stone-50 text-stone-900 antialiased">
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      </body>
     </html>
   );
 }
