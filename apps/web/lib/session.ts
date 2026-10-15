@@ -1,3 +1,4 @@
+import type { CourseUnit } from '@buditel/core';
 import { cookies } from 'next/headers';
 import { getApi } from '../server';
 
@@ -12,4 +13,13 @@ export async function getCurrentUser(): Promise<CurrentUser | null> {
   if (!cookie) return null;
   const res = await getApi().fetch(new Request('http://localhost/api/me', { headers: { cookie } }));
   return res.ok ? await res.json() : null;
+}
+
+/** The home-screen path for the signed-in user: units in order, each with its lessons. */
+export async function getCourse(): Promise<CourseUnit[]> {
+  const cookie = (await cookies()).toString();
+  const res = await getApi().fetch(
+    new Request('http://localhost/api/course', { headers: { cookie } }),
+  );
+  return res.ok ? (await res.json()).units : [];
 }
