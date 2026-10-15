@@ -4,3 +4,6 @@ dist
 package-lock.json
 *.md
 packages/core/drizzle
+test-results
+playwright-report
+blob-report
