@@ -6,6 +6,22 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:16
+        env:
+          POSTGRES_USER: buditel
+          POSTGRES_PASSWORD: buditel
+          POSTGRES_DB: buditel
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U buditel"
+          --health-interval 2s
+          --health-timeout 5s
+          --health-retries 15
+    env:
+      DATABASE_URL: postgres://buditel:buditel@localhost:5432/buditel
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -14,4 +30,5 @@ jobs:
           cache: npm
       - run: make install
       - run: make lint
+      - run: make db-migrate
       - run: make test
