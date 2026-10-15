@@ -1,4 +1,4 @@
-import type { Lesson, Step } from '@buditel/schema';
+import type { Lesson, ResultSummary, Step } from '@buditel/schema';
 import { type Answer, grade, isGraded } from './graders';
 
 export type StepRecord = { attempts: number; correct: boolean };
@@ -12,13 +12,6 @@ export type SessionState = {
   queue: string[];
   records: Record<string, StepRecord>;
   last?: { stepId: string; correct: boolean };
-};
-
-export type ResultSummary = {
-  totalQuestions: number;
-  correctFirstTry: number;
-  /** Graded steps that needed more than one attempt, in lesson order. */
-  missedStepIds: string[];
 };
 
 export function startSession(lesson: Pick<Lesson, 'steps'>): SessionState {
