@@ -8,7 +8,11 @@
   },
   "Home": {
     "greeting": "Здравей, {name}!",
-    "progress": "{completed} от {total} урока"
+    "progress": "{completed} от {total} урока",
+    "empty": "Все още няма публикувани уроци.",
+    "lessonDone": "Завършен",
+    "lessonNext": "Следващ урок",
+    "lessonLocked": "Заключен"
   },
   "Auth": {
     "signInTitle": "Вход",
