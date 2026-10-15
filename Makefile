@@ -1,4 +1,4 @@
-.PHONY: install dev build test lint typecheck format db-up db-down
+.PHONY: install dev build test lint typecheck format db-up db-down db-generate db-migrate
 
 install:
 	npm install
@@ -26,3 +26,9 @@ db-up:
 
 db-down:
 	docker compose down
+
+db-generate:
+	npm run db:generate -w @buditel/core
+
+db-migrate:
+	npm run db:migrate -w @buditel/core

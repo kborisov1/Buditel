@@ -63,7 +63,7 @@ Timelines and cause-effect chains are embedded in steps for v1. When v2 adds peo
 
 ## 5. Relational tables
 
-`units`, `lessons`, `media` (storage key, mime, dimensions, required `alt_text`), `users` (with a `role` column: `learner` or `admin`), `progress` (user, lesson, completed_at, result summary) and `audit_log` (admin actions).
+`units`, `lessons`, `media` (storage key, mime, dimensions, required `alt_text`), `users` (with a `role` column: `learner` or `admin`; Better Auth's `user`, `session`, `account` and `verification` tables serve as the users table), `progress` (user, lesson, completed_at, result summary) and `audit_log` (admin actions).
 
 Linear unlocking is computed: a lesson is open when the previous lesson in order is completed. Mid-lesson state is never persisted, which matches "leaving restarts the lesson", so no step-level state exists.
 
@@ -120,3 +120,5 @@ npm workspaces (`apps/*`, `packages/*`); no extra monorepo tool yet. Packages ar
 | `lint`                      | `tsc` typecheck, ESLint, Prettier check           |
 | `format`                    | Prettier write                                    |
 | `db-up` / `db-down`         | Local Postgres via Docker Compose                 |
+| `db-generate`               | Drizzle migration from schema changes             |
+| `db-migrate`                | Apply pending migrations to `DATABASE_URL`        |
