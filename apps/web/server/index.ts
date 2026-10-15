@@ -16,6 +16,7 @@ export function getApi() {
     const auth = createAuth(database, {
       secret: env('BETTER_AUTH_SECRET'),
       baseURL: env('BETTER_AUTH_URL'),
+      rateLimit: { enabled: process.env.DISABLE_AUTH_RATE_LIMIT !== 'true' },
     });
     api = createApi({ db: database, auth });
   }

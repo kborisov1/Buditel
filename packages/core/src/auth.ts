@@ -3,7 +3,12 @@ import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import type { Database } from './db';
 import { accounts, sessions, users, verifications } from './db/schema';
 
-export type AuthOptions = { secret: string; baseURL: string };
+export type AuthOptions = {
+  secret: string;
+  baseURL: string;
+  /** Set `{ enabled: false }` in end-to-end tests, which sign up many accounts from one address. */
+  rateLimit?: { enabled: boolean };
+};
 
 export function createAuth(db: Database, options: AuthOptions) {
   return betterAuth({
