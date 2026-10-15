@@ -28,6 +28,7 @@ Companion to `scope.md`. Covers the v1 build and how it extends to v2 and beyond
 
 ```
 apps/web            Next.js: learner app + /admin routes
+  server/           Hono API, mounted at /api by a catch-all route handler (no Next imports)
 packages/core       domain logic, DB access, services (no framework imports)
 packages/schema     Zod schemas: lesson, steps, media refs (single source of truth)
 packages/player     lesson player, used by learner AND editor preview
@@ -116,7 +117,7 @@ npm workspaces (`apps/*`, `packages/*`); no extra monorepo tool yet. Packages ar
 | --------------------------- | ------------------------------------------------- |
 | `install`                   | `npm install`                                     |
 | `dev` / `build`             | Next.js dev server / production build             |
-| `test`                      | Vitest                                            |
+| `test`                      | Vitest; DB tests use `TEST_DATABASE_URL`, which is created and migrated automatically |
 | `lint`                      | `tsc` typecheck, ESLint, Prettier check           |
 | `format`                    | Prettier write                                    |
 | `db-up` / `db-down`         | Local Postgres via Docker Compose                 |
