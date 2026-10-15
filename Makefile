@@ -1,4 +1,4 @@
-.PHONY: install dev build test lint typecheck format db-up db-down db-generate db-migrate
+.PHONY: install dev build test e2e lint typecheck format db-up db-down db-generate db-migrate
 
 install:
 	npm install
@@ -11,6 +11,9 @@ build:
 
 test:
 	npm test
+
+e2e:
+	npm run e2e
 
 typecheck:
 	npm run typecheck

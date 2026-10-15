@@ -118,6 +118,7 @@ npm workspaces (`apps/*`, `packages/*`); no extra monorepo tool yet. Packages ar
 | `install`                   | `npm install`                                     |
 | `dev` / `build`             | Next.js dev server / production build             |
 | `test`                      | Vitest; DB tests use `TEST_DATABASE_URL`, which is created and migrated automatically |
+| `e2e`                       | Playwright: builds the app and runs `e2e/` against the test database on port 3100 |
 | `lint`                      | `tsc` typecheck, ESLint, Prettier check           |
 | `format`                    | Prettier write                                    |
 | `db-up` / `db-down`         | Local Postgres via Docker Compose                 |
