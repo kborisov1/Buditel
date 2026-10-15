@@ -1,10 +1,11 @@
 import { lesson as lessonSchema } from '@buditel/schema';
 import { eq } from 'drizzle-orm';
-import { afterAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeEach, describe, expect, it } from 'vitest';
+import { resetDatabase } from '../../../../test/db';
 import { createDb, type Database } from './client';
 import { lessons, media, progress, units, users } from './schema';
 
-const url = process.env.DATABASE_URL;
+const url = process.env.DATABASE_URL || undefined;
 
 type Tx = Parameters<Parameters<Database['transaction']>[0]>[0];
 
@@ -13,6 +14,7 @@ class Rollback extends Error {}
 describe.skipIf(!url)('database schema', () => {
   const db = createDb(url ?? '');
   afterAll(() => db.$client.end());
+  beforeEach(() => resetDatabase(db));
 
   /** Runs the body in a transaction that is always rolled back. */
   async function inRollback(body: (tx: Tx) => Promise<void>) {
