@@ -23,4 +23,19 @@ describe('lesson schema', () => {
     const result = lesson.safeParse({ ...base, steps: [{ id: 's1', type: 'nope' }] });
     expect(result.success).toBe(false);
   });
+
+  it('rejects duplicate step ids', () => {
+    const result = lesson.safeParse({
+      ...base,
+      steps: [
+        { id: 's1', type: 'story', text: 'A' },
+        { id: 's1', type: 'story', text: 'B' },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it('accepts a lesson with no steps yet', () => {
+    expect(lesson.safeParse({ ...base, steps: [] }).success).toBe(true);
+  });
 });
