@@ -6,7 +6,8 @@
     "packages/*/src/**/*.ts",
     "packages/*/src/**/*.tsx",
     "*.config.ts",
-    "*.config.mjs"
+    "*.config.mjs",
+    "test/**/*.ts"
   ],
   "exclude": ["node_modules", "**/.next"]
 }
