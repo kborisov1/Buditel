@@ -1,0 +1,16 @@
+# Local-only instructions
+CLAUDE.md
+
+# OS files
+.DS_Store
+
+# Secrets and local data
+.env
+.env.*
+backups/
+
+# Local media
+*.mp4
+*.mov
+*.wav
+*.mp3
