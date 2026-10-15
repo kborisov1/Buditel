@@ -2,5 +2,32 @@
   "App": {
     "name": "Будител",
     "tagline": "Българското Възраждане, урок по урок"
+  },
+  "Shell": {
+    "signOut": "Изход"
+  },
+  "Home": {
+    "greeting": "Здравей, {name}!",
+    "progress": "{completed} от {total} урока"
+  },
+  "Auth": {
+    "signInTitle": "Вход",
+    "signUpTitle": "Регистрация",
+    "name": "Име",
+    "email": "Имейл",
+    "password": "Парола",
+    "passwordHint": "Поне {min} знака",
+    "signInSubmit": "Влез",
+    "signUpSubmit": "Регистрирай се",
+    "noAccount": "Нямаш профил?",
+    "haveAccount": "Вече имаш профил?",
+    "signUpLink": "Регистрация",
+    "signInLink": "Вход",
+    "errors": {
+      "invalid_credentials": "Грешен имейл или парола.",
+      "email_taken": "Вече има профил с този имейл.",
+      "weak_password": "Паролата трябва да е поне 8 знака.",
+      "unknown": "Нещо се обърка. Опитай отново."
+    }
   }
 }

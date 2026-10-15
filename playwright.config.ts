@@ -30,6 +30,7 @@ export default defineConfig({
     env: {
       DATABASE_URL: testDatabaseUrl,
       BETTER_AUTH_URL: baseURL,
+      DISABLE_AUTH_RATE_LIMIT: 'true',
       BETTER_AUTH_SECRET:
         process.env.BETTER_AUTH_SECRET || 'e2e-secret-at-least-32-characters-long',
     },
