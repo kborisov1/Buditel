@@ -8,6 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@buditel/core": "*",
+    "@buditel/schema": "*",
+    "hono": "^4.13.13",
     "next": "^16.4.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
