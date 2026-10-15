@@ -22,7 +22,7 @@ Companion to `scope.md`. Covers the v1 build and how it extends to v2 and beyond
 | Auth | Better Auth | Email + password now; OAuth/SSO providers and bearer tokens are plugins later |
 | Media | Cloudflare R2 behind a CDN | Image variants generated on upload |
 | Hosting | Vercel + Neon Postgres + R2 | Cheapest low-ops setup; Dockerize so moving to a VPS or another cloud is easy |
-| Quality | Vitest, Playwright, GitHub Actions, Sentry | Vitest for schema and grading, Playwright for the learner flow |
+| Quality | Vitest, Playwright, Sentry | Vitest for schema and grading, Playwright for the learner flow |
 
 ## 3. Repo layout
 
