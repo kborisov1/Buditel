@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@buditel/core": "*",
+    "@buditel/player": "*",
     "@buditel/schema": "*",
     "hono": "^4.13.13",
     "next": "^16.4.1",
